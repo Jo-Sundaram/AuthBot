@@ -32,7 +32,7 @@ Unix:
 ## Step 4: make sure a "student_data.csv" file exists
 
 ## Step 5: run util.py to parse the .csv file into a JSON file 
-Note: If you made changes to the csv file simply run util.py again to update the student data
+Note: If you made changes to the csv file simply run util.py again to update the student data,
 these changes will be reflected in the Bot as well!
 
 ## Step 6: run bot.py to start the bot
