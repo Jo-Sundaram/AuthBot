@@ -1,3 +1,12 @@
+## Features:
+- Assign a particular role to students that enter a key
+
+- Assign their preferred name if it exists other wise assign their first name
+
+- Parse a .csv file that contains the student information and the Discord keys
+
+- "$update" command to update the data the Bot is using without having to restart the Bot
+
 ## Step 0: create a Discord Bot, retrieve the token, invite the bot to your server
 Guide: https://www.writebots.com/discord-bot-token/
 
