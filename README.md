@@ -37,3 +37,34 @@ these changes will be reflected in the Bot as well!
 
 ## Step 6: run bot.py to start the bot
 Note: Make sure step 3 is done!
+
+
+## Relevant API
+https://discordpy.readthedocs.io/en/stable/
+
+### Intents 
+https://discordpy.readthedocs.io/en/latest/api.html?highlight=intent#discord.Intents
+
+## Clients
+https://discordpy.readthedocs.io/en/latest/api.html?highlight=client#discord.Client
+
+## on_ready
+https://discordpy.readthedocs.io/en/latest/api.html?highlight=on_ready#discord.on_ready
+
+## on_message
+https://discordpy.readthedocs.io/en/latest/api.html?highlight=on_message#discord.on_message
+
+## context
+https://discordpy.readthedocs.io/en/latest/ext/commands/api.html?highlight=context#discord.ext.commands.Context
+
+## discord.Message
+https://discordpy.readthedocs.io/en/stable/api.html?highlight=message#discord.Message
+
+## discord.Member
+https://discordpy.readthedocs.io/en/stable/api.html?highlight=member#discord.Member
+
+## discord.Guild
+https://discordpy.readthedocs.io/en/stable/api.html?highlight=guild#discord.Guild
+
+## discord.Role
+https://discordpy.readthedocs.io/en/stable/api.html?highlight=role#discord.Role
