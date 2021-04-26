@@ -3,36 +3,34 @@ import discord
 
 from discord.ext import commands
 from discord.utils import get
-from util import is_admin, parse_student_info, get_student_info
+from util import is_admin, get_student_data, parse_student_data
 
 # Roles
-ADMIN_ROLE = "discordians"
+ADMIN_ROLE = "Discordians"
 STUDENT_ROLE = "Student"
 
 # Discord Token
 TOKEN = os.environ["DISCORD_BOT_TOKEN"]
 
 # Discord API setup
-# https://discordpy.readthedocs.io/en/latest/api.html?highlight=intent#discord.Intents
+
 intents = discord.Intents.all()
- # https://discordpy.readthedocs.io/en/latest/api.html?highlight=client#discord.Client
-client = commands.Bot(command_prefix="$ ", intents=intents)
+client = commands.Bot(command_prefix="$", intents=intents)
 
-
-# https://discordpy.readthedocs.io/en/latest/api.html?highlight=on_ready#discord.on_ready
 @client.event
-async def on_ready(ctx):
-    # student_role = await guild.create_role(
-    #     name=f"Group: {group}", mentionable=True
-    # )
+async def on_ready(): 
+    """Async function called when the bot first starts and successfully connects to the Discord API
+    """
+    print(f"We have logged in as {client.user.name}")
 
-    print(f"We have logged in as {client}")
-
-
-# https://discordpy.readthedocs.io/en/latest/api.html?highlight=on_message#discord.on_message
 @client.event
 async def on_message(message):
-    student_role = discord.utils.get(guild.roles, name=STUDENT_ROLE)
+    """Async function called everytime a message is sent on the Discord server
+
+    Args:
+        message (discord.Message): Discord's Message object
+    """
+    server = message.guild
     discord_key = message.content
 
     # Ignore bot's own messages
@@ -40,20 +38,26 @@ async def on_message(message):
         return
 
     if message.channel.name == "welcome":
-        if discord_key in student_data:
-            student = get_student_info(discord_key)
-            role = get(guild.roles, name=STUDENT_ROLE)
+        student = get_student_data(discord_key)
+        if (student):    
+            role = discord.utils.get(server.roles, name=STUDENT_ROLE)
             await message.author.add_roles(role)
-            message.author.name = student["Preferred Name"]
-
+            await message.author.edit(nick=student["Preferred name"])
+        else:
+            print(f"Failed to accept {message.author}'s' provided a key ({discord_key}).\nError: {err}")
+            
     await client.process_commands(message)
 
+@client.command(name="update")
+async def _update(ctx):
+    """Async function called when the $update command is used in the Discord server
 
-# ctx = https://discordpy.readthedocs.io/en/latest/ext/commands/api.html?highlight=context#discord.ext.commands.Context
-@client.command(name="!hello")
-async def _hello(ctx):
+    Args:
+        ctx (context): The context where the command was called from ex. discord.Message
+    """
     if is_admin(ctx, ADMIN_ROLE):
-        await ctx.send("\> Hello!")
+        await ctx.send("\> Updating the JSON file!")
+        parse_student_data("student_data.csv")
     else:
         await ctx.send("\> You are not authorized to use that command!")
 
