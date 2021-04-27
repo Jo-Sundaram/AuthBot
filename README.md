@@ -54,26 +54,26 @@ https://discordpy.readthedocs.io/en/stable/
 ### Intents 
 https://discordpy.readthedocs.io/en/latest/api.html?highlight=intent#discord.Intents
 
-## Clients
+### Clients
 https://discordpy.readthedocs.io/en/latest/api.html?highlight=client#discord.Client
 
-## on_ready
+### on_ready
 https://discordpy.readthedocs.io/en/latest/api.html?highlight=on_ready#discord.on_ready
 
-## on_message
+### on_message
 https://discordpy.readthedocs.io/en/latest/api.html?highlight=on_message#discord.on_message
 
-## context
+### context
 https://discordpy.readthedocs.io/en/latest/ext/commands/api.html?highlight=context#discord.ext.commands.Context
 
-## discord.Message
+### discord.Message
 https://discordpy.readthedocs.io/en/stable/api.html?highlight=message#discord.Message
 
-## discord.Member
+### discord.Member
 https://discordpy.readthedocs.io/en/stable/api.html?highlight=member#discord.Member
 
-## discord.Guild
+### discord.Guild
 https://discordpy.readthedocs.io/en/stable/api.html?highlight=guild#discord.Guild
 
-## discord.Role
+### discord.Role
 https://discordpy.readthedocs.io/en/stable/api.html?highlight=role#discord.Role
