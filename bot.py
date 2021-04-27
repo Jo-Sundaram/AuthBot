@@ -59,6 +59,7 @@ async def _update(ctx):
     if is_admin(ctx, ADMIN_ROLE):
         await ctx.send("\> Updating the JSON file!")
         parse_student_data("student_data.csv")
+        await ctx.send("\> Done!")
     else:
         await ctx.send("\> You are not authorized to use that command!")
 
