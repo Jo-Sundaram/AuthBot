@@ -45,7 +45,7 @@ async def on_message(message):
             name = student["Preferred name"] if student["Preferred name"] != "" else student["First name"]
             await message.author.edit(nick=name)
         else:
-            print(f"Failed to accept {message.author}'s' provided key ({discord_key}).")
+            print(f"Failed to accept {message.author}'s provided key ({discord_key}).")
             
     await client.process_commands(message)
 
