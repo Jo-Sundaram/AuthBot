@@ -42,9 +42,10 @@ async def on_message(message):
         if (student):    
             role = discord.utils.get(server.roles, name=STUDENT_ROLE)
             await message.author.add_roles(role)
-            await message.author.edit(nick=student["Preferred name"])
+            name = student["Preferred name"] if student["Preferred name"] != "" else student["First name"]
+            await message.author.edit(nick=name)
         else:
-            print(f"Failed to accept {message.author}'s' provided a key ({discord_key}).\nError: {err}")
+            print(f"Failed to accept {message.author}'s' provided key ({discord_key}).")
             
     await client.process_commands(message)
 
